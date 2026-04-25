@@ -26,7 +26,6 @@ The app runs locally on your computer. No API key, no cloud upload, no paid serv
 
 ---
 
----
 
 ## 🚀 Quick start
 
