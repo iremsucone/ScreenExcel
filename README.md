@@ -1,202 +1,370 @@
 # 📸 ScreenExcel
 
-**ScreenExcel** is a free local tool that turns table screenshots into editable Excel/CSV files.
+**ScreenExcel** is a free local tool that turns screenshots of tables into editable Excel/CSV files.
 
-It is designed for students, researchers, and engineers who often need to extract tables from papers, reports, slides, or screenshots and turn them into usable data.
+You upload a screenshot, the app reads the table, then you can correct mistakes, rename columns, edit values, save tables, and export them.
 
-The app runs locally on your computer. No API key, no cloud upload, no paid service.
+It runs on your own computer.
 
----
+No API key.  
+No paid service.  
+No data upload.
+
 <img width="1440" height="754" alt="Image" src="https://github.com/user-attachments/assets/a426321b-0c7f-44f9-8a40-21f634f16c7a" />
 
-## ✨ Features
+---
 
-- Upload a table screenshot (`PNG`, `JPG`, `JPEG`)
-- Extract table data using OCR
-- Edit extracted values directly inside the app
-- Delete extra columns created by OCR
-- Merge wrongly split columns
-- Rename columns before saving
-- Save cleaned tables into a local repository
-- Re-open saved tables
-- Edit saved values and column names later
-- Export one table as Excel or CSV
-- Export the full repository as:
-  - one multi-sheet Excel file
-  - one combined CSV file
+## What you need first
+
+Before running ScreenExcel, you need:
+
+1. Python
+2. Tesseract OCR
+3. The Python packages listed in `requirements.txt`
 
 ---
 
+## 1. Install Python
 
-## 🚀 Quick start
+Download Python here:
 
-### 1. Clone the repository
+https://www.python.org/downloads/
+
+If you are on Windows, during installation, select:
+
+```text
+Add Python to PATH
+```
+
+To check if Python is installed, open Terminal or Command Prompt and run:
+
+```bash
+python --version
+```
+
+or:
+
+```bash
+python3 --version
+```
+
+---
+
+## 2. Download this project
+
+You have two options.
+
+### Option A — Easy way
+
+Click the green **Code** button on GitHub, then click:
+
+```text
+Download ZIP
+```
+
+Unzip the folder.
+
+Open the folder in Terminal or Command Prompt.
+
+---
+
+### Option B — Git way
+
+If you already use Git, run:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/screenexcel.git
 cd screenexcel
 ```
 
-### 2. Create a virtual environment
+Replace `YOUR-USERNAME` with your own GitHub username.
 
-```bash
-python -m venv venv
-```
+---
 
-Activate it:
+## 3. Install Tesseract OCR
 
-**macOS / Linux**
+ScreenExcel uses Tesseract OCR to read text from images.
 
-```bash
-source venv/bin/activate
-```
+The Python package alone is not enough.  
+You must install the Tesseract program too.
 
-**Windows**
+### macOS
 
-```bash
-venv\Scripts\activate
-```
-
-### 3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Install Tesseract OCR
-
-ScreenExcel uses Tesseract OCR. It must be installed separately.
-
-**macOS**
+If you use Homebrew:
 
 ```bash
 brew install tesseract
 ```
 
-**Ubuntu / Linux**
+### Ubuntu / Linux
 
 ```bash
 sudo apt-get install tesseract-ocr
 ```
 
-**Windows**
+### Windows
 
-Download and install Tesseract from:
+Download Tesseract here:
 
 https://github.com/UB-Mannheim/tesseract/wiki
 
-After installation, make sure Tesseract is added to your system PATH.
+After installation, restart Terminal or Command Prompt.
 
 ---
 
-## ▶️ Run the app
+## 4. Install the Python packages
+
+Inside the ScreenExcel folder, run:
+
+```bash
+pip install -r requirements.txt
+```
+
+If `pip` does not work, try:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+or:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+---
+
+## 5. Run ScreenExcel
+
+Inside the project folder, run:
 
 ```bash
 streamlit run app.py
 ```
 
-Then open the local Streamlit link shown in your terminal.
+A browser page should open automatically.
 
----
+If it does not open, copy the local URL from the terminal and paste it into your browser.
 
-## 🧪 How to use
+It usually looks like this:
 
-1. Upload a screenshot of a table.
-2. Review the extracted table.
-3. Delete unnecessary columns if OCR created too many.
-4. Merge columns if OCR split one column into several parts.
-5. Rename columns if needed.
-6. Edit values directly inside the table.
-7. Save the cleaned table to the repository.
-8. Export one table or the full repository.
-
----
-
-## 🗂️ Local repository
-
-When you save tables, ScreenExcel automatically creates this folder:
-
-```bash
-table_repository/
+```text
+http://localhost:8501
 ```
-
-Each saved table contains:
-
-- a `.csv` file with the table data
-- a `.json` file with metadata such as table name, source image, save date, and update date
-
-This folder is ignored by Git by default because it contains your personal extracted data.
-
----
-
-## 📦 Export options
-
-ScreenExcel can export:
-
-- the current extracted table as Excel
-- the current extracted table as CSV
-- one saved repository table as Excel
-- one saved repository table as CSV
-- all saved tables as one Excel file with multiple sheets
-- all saved tables as one combined CSV file
-
----
-
-## 🔐 Privacy
-
-ScreenExcel runs locally.
-
-Your screenshots and tables are not uploaded anywhere.
-
----
-
 <img width="1439" height="733" alt="Image" src="https://github.com/user-attachments/assets/64509550-7067-4495-95ea-61d5b3d26bec" />
 
 <img width="1464" height="839" alt="Image" src="https://github.com/user-attachments/assets/c947e082-2cdd-4baf-aaa6-2bdcf1b96097" />
 
-## ⚠️ Limitations
-
-OCR quality depends on the screenshot.
-
-Best results come from:
-
-- clear screenshots
-- high contrast
-- good resolution
-- tightly cropped tables
-- non-rotated images
-
-Very blurry screenshots, merged cells, complex table layouts, or small text may require manual correction.
 
 ---
 
-## 🧭 Roadmap ideas
+## How to use ScreenExcel
 
-Possible future improvements:
+### 1. Upload a screenshot
 
-- Graph generation from extracted tables
-- Search inside saved tables
-- Batch upload of multiple screenshots
-- PDF page extraction
-- Automatic unit detection
-- Scientific column detection such as `LOI (%)`, `UL-94`, `wt%`, `Tg`, `Tm`
-- Merge and compare tables from multiple papers
+Go to the **Extract table** tab.
+
+Upload a `.png`, `.jpg`, or `.jpeg` image of a table.
 
 ---
 
-## 🛠️ Tech stack
+### 2. Check the extracted table
 
-- Python
-- Streamlit
-- Tesseract OCR
-- OpenCV
-- Pandas
-- OpenPyXL
-- Pillow
+The screenshot appears on the left.
+
+The extracted table appears on the right.
+
+OCR is not always perfect, so check the result before saving.
 
 ---
 
-## 📄 License
+### 3. Fix columns if needed
+
+You can fix the extracted table before saving it.
+
+#### Delete columns
+
+Use this if the app creates extra wrong columns.
+
+#### Merge columns
+
+Use this if one real column was split into two or more columns.
+
+Example:
+
+```text
+No | rating
+```
+
+can become:
+
+```text
+No rating
+```
+
+#### Split columns
+
+Use this if many values were placed into one column.
+
+Example:
+
+```text
+PS1 100 0 0 18.5 NR
+```
+
+can become:
+
+```text
+Sample | PS | EG | AP | LOI | UL-94
+```
+
+You can split by:
+
+- space
+- comma
+- semicolon
+- slash
+- custom separator
+
+---
+
+## Rename and edit
+
+You can rename columns before saving.
+
+You can also edit values directly in the table.
+
+---
+
+## Save tables
+
+Click:
+
+```text
+Save table to repository
+```
+
+ScreenExcel will create a local folder called:
+
+```text
+table_repository/
+```
+
+This folder stores your saved tables on your computer.
+
+Each saved table has:
+
+- a `.csv` file
+- a `.json` metadata file
+
+---
+
+## Repository tab
+
+In the **Table repository** tab, you can:
+
+- open saved tables
+- rename saved tables
+- rename saved columns
+- split saved columns
+- edit saved values
+- save changes
+- delete saved tables
+
+---
+
+## Export options
+
+You can export:
+
+### One table
+
+- Excel
+- CSV
+
+### Full repository
+
+- one Excel file with multiple sheets
+- one combined CSV file
+
+---
+
+## Delete a saved table
+
+In the repository tab, go to:
+
+```text
+Danger zone
+```
+
+Type:
+
+```text
+DELETE
+```
+
+Then click the delete button.
+
+This prevents accidental deletion.
+
+---
+
+## requirements.txt
+
+Your `requirements.txt` file should contain:
+
+```text
+streamlit
+pandas
+numpy
+pillow
+pytesseract
+opencv-python
+openpyxl
+```
+
+---
+
+## Common problems
+
+### “No table detected”
+
+Try:
+
+- cropping closer to the table
+- using a clearer screenshot
+- zooming in before taking the screenshot
+- using a higher-resolution image
+
+### “Tesseract not found”
+
+Tesseract OCR is probably not installed correctly.
+
+Install Tesseract again and restart your terminal.
+
+### The table has wrong columns
+
+Use:
+
+- delete columns
+- merge columns
+- split columns
+- manual editing
+
+OCR helps, but it is not perfect.
+
+---
+
+## Privacy
+
+ScreenExcel runs locally.
+
+Your screenshots and extracted tables stay on your computer.
+
+Nothing is uploaded online.
+
+---
+
+## License
 
 MIT License.
-# ScreenExcel
