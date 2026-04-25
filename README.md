@@ -7,6 +7,7 @@ It is designed for students, researchers, and engineers who often need to extrac
 The app runs locally on your computer. No API key, no cloud upload, no paid service.
 
 ---
+<img width="1440" height="754" alt="Image" src="https://github.com/user-attachments/assets/a426321b-0c7f-44f9-8a40-21f634f16c7a" />
 
 ## ✨ Features
 
@@ -148,6 +149,10 @@ ScreenExcel runs locally.
 Your screenshots and tables are not uploaded anywhere.
 
 ---
+
+<img width="1439" height="733" alt="Image" src="https://github.com/user-attachments/assets/64509550-7067-4495-95ea-61d5b3d26bec" />
+
+<img width="1464" height="839" alt="Image" src="https://github.com/user-attachments/assets/c947e082-2cdd-4baf-aaa6-2bdcf1b96097" />
 
 ## ⚠️ Limitations
 
