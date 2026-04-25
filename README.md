@@ -26,22 +26,6 @@ The app runs locally on your computer. No API key, no cloud upload, no paid serv
 
 ---
 
-## 🖼️ Screenshots
-
-Add your screenshots inside the `assets/` folder and replace these filenames if needed.
-
-### 1. Extract a table from a screenshot
-
-![ScreenExcel extraction view](assets/demo_extract.png)
-
-### 2. Edit values and rename columns
-
-![ScreenExcel editing view](assets/demo_edit.png)
-
-### 3. Save tables into a local repository
-
-![ScreenExcel repository view](assets/demo_repository.png)
-
 ---
 
 ## 🚀 Quick start
